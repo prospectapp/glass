@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glass Apps for Mac</title>
+<meta name="description" content="More than 100 small apps for your Mac. Choose the ones you want, and Glass Apps installs them and keeps them up to date.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f6f8">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111114">
+<link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://glassapps.ca/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Glass Apps for Mac">
+<meta property="og:description" content="More than 100 small apps for your Mac, kept up to date in one place.">
+<meta property="og:url" content="https://glassapps.ca/">
+<meta property="og:image" content="https://glassapps.ca/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Twelve Glass app icons">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--bg:#f6f6f8;--surface:#fff;--text:#1d1d1f;--muted:#6e6e73;--line:rgba(0,0,0,.1);--accent:#0a66d8;--on-accent:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#111114;--surface:#1c1c20;--text:#f2f2f5;--muted:#a1a1a8;--line:rgba(255,255,255,.12);--accent:#5aa2ff;--on-accent:#08111f}}
+:root[data-theme=dark]{--bg:#111114;--surface:#1c1c20;--text:#f2f2f5;--muted:#a1a1a8;--line:rgba(255,255,255,.12);--accent:#5aa2ff;--on-accent:#08111f;color-scheme:dark}
+:root[data-theme=light]{color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+p{text-wrap:pretty}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:64px;align-items:center;padding:88px 0 80px}
+h1{margin:0 0 18px;font-size:clamp(52px,6.6vw,92px);line-height:.98;font-weight:700;letter-spacing:-.04em}
+.lede{margin:0 0 30px;max-width:30ch;text-wrap:balance;font-size:clamp(21px,2.2vw,26px);line-height:1.3;letter-spacing:-.01em}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 24px;border-radius:999px;background:var(--accent);color:var(--on-accent);font-weight:600;font-size:16px;text-decoration:none;white-space:nowrap}
+.btn:hover{filter:brightness(1.08)}
+.btn.quiet{background:transparent;color:var(--text);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn.quiet:hover{background:var(--line);filter:none}
+.req{margin:20px 0 0;max-width:44ch;font-size:15px;color:var(--muted)}
+.wall{display:grid;grid-template-columns:repeat(4,104px);gap:20px}
+.wall img{display:block;width:104px;height:104px}
+
+.how{padding:56px 0;border-top:1px solid var(--line)}
+h2{margin:0 0 10px;font-size:clamp(28px,3vw,36px);line-height:1.15;font-weight:700;letter-spacing:-.025em}
+.steps{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px;counter-reset:step}
+.steps li{counter-increment:step}
+.steps li::before{content:counter(step);display:grid;place-items:center;width:34px;height:34px;margin-bottom:14px;border-radius:50%;background:var(--surface);box-shadow:inset 0 0 0 1.5px var(--line);font-weight:650;font-size:16px}
+.steps strong{display:block;margin-bottom:4px;font-size:19px}
+.steps p{margin:0;color:var(--muted)}
+
+.all{padding:56px 0 24px;border-top:1px solid var(--line)}
+.intro{margin:0;color:var(--muted);max-width:60ch}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 8px}
+.jump a{padding:7px 14px;border-radius:999px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);color:var(--text);font-size:15px;text-decoration:none}
+.jump a:hover{box-shadow:inset 0 0 0 1.5px var(--accent)}
+.group{padding-top:36px;scroll-margin-top:12px}
+h3{margin:0 0 6px;font-size:22px;font-weight:650;letter-spacing:-.015em}
+h3 span{margin-left:6px;font-weight:500;color:var(--muted)}
+.apps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px}
+.apps li{display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px;align-items:start;padding:16px 0;border-top:1px solid var(--line)}
+.apps img{display:block;width:48px;height:48px}
+.apps p{margin:0;font-size:15px;line-height:1.45;color:var(--muted)}
+.apps code{font:.92em/1 ui-monospace,SFMono-Regular,Menlo,monospace}
+.apps .name{margin:2px 0 2px;font-size:16px;font-weight:600;color:var(--text)}
+
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;padding:40px 0 56px;color:var(--muted);font-size:15px}
+footer a{color:inherit;text-underline-offset:3px}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;gap:44px;padding:56px 0 52px}
+  .wall{grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+  .wall img{width:100%;height:auto}
+  .steps{grid-template-columns:1fr;gap:26px}
+  .apps{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .wrap{padding:0 20px}
+  .wall{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="hero">
+    <div>
+      <h1>Glass Apps</h1>
+      <p class="lede">More than 100 small apps for your Mac, kept up to date in one place.</p>
+      <div class="actions">
+        <a class="btn" href="https://github.com/prospectapp/glass-apps-downloads/releases/latest/download/Glass-Apps.dmg">Download for Mac</a>
+        <a class="btn quiet" href="privacy.html">Privacy and support</a>
+      </div>
+      <p class="req">For Apple silicon and Intel Macs running macOS 14.2 or later. Some apps need a newer version of macOS.</p>
+    </div>
+    <div class="wall" aria-hidden="true">
+        <img src="icons/large/eq.webp" alt="" width="104" height="104">
+        <img src="icons/large/weather.webp" alt="" width="104" height="104">
+        <img src="icons/large/calendar.webp" alt="" width="104" height="104">
+        <img src="icons/large/clipboard.webp" alt="" width="104" height="104">
+        <img src="icons/large/sky.webp" alt="" width="104" height="104">
+        <img src="icons/large/notes.webp" alt="" width="104" height="104">
+        <img src="icons/large/mixer.webp" alt="" width="104" height="104">
+        <img src="icons/large/tidy.webp" alt="" width="104" height="104">
+        <img src="icons/large/focus.webp" alt="" width="104" height="104">
+        <img src="icons/large/fits.webp" alt="" width="104" height="104">
+        <img src="icons/large/color.webp" alt="" width="104" height="104">
+        <img src="icons/large/passwords.webp" alt="" width="104" height="104">
+    </div>
+  </header>
+
+  <section class="how" aria-labelledby="how-h">
+    <h2 id="how-h">How it works</h2>
+    <ol class="steps">
+      <li><strong>Download</strong><p>Download Glass Apps and drag it into your Applications folder.</p></li>
+      <li><strong>Choose</strong><p>Open it, browse or search the collection, and select the apps you want.</p></li>
+      <li><strong>Install</strong><p>Click Install. Click Update All to update everything at once, or turn on automatic updates.</p></li>
+    </ol>
+  </section>
+
+  <section class="all" aria-labelledby="all-h">
+    <h2 id="all-h">All 104 apps</h2>
+    <p class="intro">Choose as many or as few as you like. You can come back to add another app at any time.</p>
+    <nav class="jump" aria-label="App categories">
+      <a href="#productivity">Productivity</a>
+      <a href="#system-utilities">System utilities</a>
+      <a href="#astronomy-and-research">Astronomy and research</a>
+      <a href="#time-and-wellbeing">Time and wellbeing</a>
+      <a href="#nature-and-desktop">Nature and desktop</a>
+      <a href="#audio">Audio</a>
+      <a href="#sports-and-games">Sports and games</a>
+    </nav>
+    <section class="group" id="productivity" aria-labelledby="productivity-h">
+      <h3 id="productivity-h">Productivity <span>28</span></h3>
+      <ul class="apps">
+        <li><img src="icons/agenda.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Agenda</p><p>Today&#x27;s events on your desktop with what&#x27;s on now highlighted and tomorrow underneath; click to open Calendar, one click to join a meeting.</p></div></li>
+        <li><img src="icons/ask.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Ask</p><p>Apple Intelligence on your Mac in one click: summarize, proofread, rewrite, translate or ask about any text.</p></div></li>
+        <li><img src="icons/browser.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Browser</p><p>A web browser with spaces, private windows and an assistant that can run on your Mac.</p></div></li>
+        <li><img src="icons/calc.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Calc</p><p>A calculator you type into: answers as you type, scientific functions, graphs when you use <code>x</code>, a 3D surface you can turn when you use <code>x</code> and <code>y</code>, your own variables, fractions, a history and <code>ans</code>.</p></div></li>
+        <li><img src="icons/calendar.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Calendar</p><p>Your next event and a countdown in the menu bar, one click to join the call, a month view and alerts as calls start.</p></div></li>
+        <li><img src="icons/cards.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Cards</p><p>Flashcards with spaced repetition (SM-2), decks, pasted lists and CSV import, and the cards due in the menu bar.</p></div></li>
+        <li><img src="icons/chat.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Chat</p><p>Messages between the Macs on your network, straight from one to the other and sealed between them: no account, no server.</p></div></li>
+        <li><img src="icons/clipboard.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Clipboard</p><p>Searchable clipboard history (passwords never kept). ⌘⇧V opens it anywhere and can paste straight into the app you&#x27;re in.</p></div></li>
+        <li><img src="icons/convert.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Convert</p><p>Every unit at once, including astronomical ones (au, light-years, parsecs, solar masses).</p></div></li>
+        <li><img src="icons/days.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Days</p><p>Countdowns to deadlines, trips and birthdays, with the nearest in the menu bar.</p></div></li>
+        <li><img src="icons/define.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Define</p><p>Definitions from the dictionaries built into macOS, with recent lookups.</p></div></li>
+        <li><img src="icons/dev.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Dev</p><p>Small tools for developers: format or minify JSON, decode a JWT, convert timestamps, Base64/URL/HTML encoding, hashes, UUIDs and case changes, all on your Mac.</p></div></li>
+        <li><img src="icons/extract.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Extract</p><p>Drop a PDF, a scan or a document and its tables and details come out as an Excel workbook, read on your Mac, with Apple Intelligence naming the details.</p></div></li>
+        <li><img src="icons/formats.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Formats</p><p>Converts files dropped on it: pictures, PDFs, documents, video and sound, with what the Mac has built in (and presentations and spreadsheets through Keynote and Numbers, outside the App Store).</p></div></li>
+        <li><img src="icons/grab.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Grab</p><p>Drag over anything on screen (⇧⌘2) and its text is copied, recognized on your Mac; reads QR codes too.</p></div></li>
+        <li><img src="icons/hours.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Hours</p><p>Time in each app today and this week, with time away left out, daily limits and groups.</p></div></li>
+        <li><img src="icons/journal.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Journal</p><p>A line a day with your mood, a streak, five weeks of dots and what you wrote on this day before.</p></div></li>
+        <li><img src="icons/list.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass List</p><p>A to-do list that stays on your desktop: type to add, click to finish, clear the done ones.</p></div></li>
+        <li><img src="icons/notes.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Notes</p><p>Quick notes that save as you type (with plain-text copies in Application Support).</p></div></li>
+        <li><img src="icons/qr.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass QR</p><p>QR codes for links, text and Wi-Fi, copied or saved as PNG, and reading codes from images on the clipboard.</p></div></li>
+        <li><img src="icons/rates.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Rates</p><p>Convert between 30 currencies as you type, from the European Central Bank&#x27;s daily rates, with three months of history.</p></div></li>
+        <li><img src="icons/rename.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Rename</p><p>Rename a folder&#x27;s contents to snake_case (or kebab-case, Title Case), with a preview and undo.</p></div></li>
+        <li><img src="icons/spend.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Spend</p><p>Log expenses in two clicks, the month by category against a budget, and CSV export.</p></div></li>
+        <li><img src="icons/sticky.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Sticky</p><p>Sticky notes in glass on your desktop: as many as you like, in six colors and three text sizes, saved as you type.</p></div></li>
+        <li><img src="icons/text.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Text</p><p>Change case, trim, sort and dedupe lines, Base64/URL/HTML encoding, and pretty or minified JSON.</p></div></li>
+        <li><img src="icons/todo.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass To-Do</p><p>A quick to-do list with due times and reminders, overdue first, count in the menu bar.</p></div></li>
+        <li><img src="icons/translate.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Translate</p><p>Translate typed or pasted text with Apple&#x27;s on-device translation (macOS 15), detect the source language, swap, copy or hear the result.</p></div></li>
+        <li><img src="icons/tutorial.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Tutorial</p><p>Week of term, an agenda timer for tutorials, a fair random picker and a group maker.</p></div></li>
+      </ul>
+    </section>
+    <section class="group" id="system-utilities" aria-labelledby="system-utilities-h">
+      <h3 id="system-utilities-h">System utilities <span>23</span></h3>
+      <ul class="apps">
+        <li><img src="icons/awake.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Awake</p><p>Keeps your Mac awake for a while, until you stop it, until downloads finish, or while an app is open.</p></div></li>
+        <li><img src="icons/backup.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Backup</p><p>Days since your last Time Machine backup, Back Up Now with live progress, a reminder when your backup drive is plugged in, and every drive&#x27;s free space with eject.</p></div></li>
+        <li><img src="icons/bar.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Bar</p><p>Hides the menu bar icons you rarely need behind one arrow (⌥⌘B). On macOS 27 and later you choose the apps whose icons hide.</p></div></li>
+        <li><img src="icons/health.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Battery Health</p><p>Your MacBook battery&#x27;s health over months and years: capacity and cycles on a chart with a smoothed trend, wear rate, a forecast of when it reaches 80%, milestone alerts and CSV export.</p></div></li>
+        <li><img src="icons/capture.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Capture</p><p>Record part of the screen (⇧⌘6) or all of it to a sharp H.264 video; drag recordings into any app.</p></div></li>
+        <li><img src="icons/color.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Color</p><p>Pick any color on screen; copy it as hex, RGB, HSL, SwiftUI, AppKit or matplotlib, with contrast checks.</p></div></li>
+        <li><img src="icons/devices.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Devices</p><p>Battery levels of everything connected to your Mac: AirPods (left, right, case), Magic Keyboard, Mouse and Trackpad, and the Mac itself, with a warning before one runs out.</p></div></li>
+        <li><img src="icons/disk.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Disk</p><p>How full each disk is, and what&#x27;s taking the space: choose a folder and see its contents sized and sorted, biggest first, then drill in.</p></div></li>
+        <li><img src="icons/draw.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Draw</p><p>Draw, highlight and point with arrows over anything on screen (⌃⌥D) while you teach or present, and spotlight the pointer.</p></div></li>
+        <li><img src="icons/gauges.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Gauges</p><p>Processor, memory, disk and network as small rings on your desktop, moving as your Mac works.</p></div></li>
+        <li><img src="icons/loupe.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Loupe</p><p>A magnifier that follows your pointer (⌃⌥L): 2× to 16×, a pixel grid and the color under the cursor as hex.</p></div></li>
+        <li><img src="icons/match.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Match</p><p>Makes a monitor look like your Mac&#x27;s own screen, from a phone photo of the two side by side.</p></div></li>
+        <li><img src="icons/mirror.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Mirror</p><p>Your camera, mirrored, with a lighting check: the camera runs only while it&#x27;s open.</p></div></li>
+        <li><img src="icons/net.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Net</p><p>Online status, latency, Wi-Fi signal, public and local IP, and speed tests (Apple&#x27;s networkQuality; Cloudflare in the App Store version).</p></div></li>
+        <li><img src="icons/passwords.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Passwords</p><p>Strong passwords, passphrases and PINs from the secure random generator; copies are hidden from clipboard managers and cleared after a minute.</p></div></li>
+        <li><img src="icons/repos.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Repos</p><p>Your GitHub repositories&#x27; latest Actions run, open pull requests and issues, and a notification when a build fails.</p></div></li>
+        <li><img src="icons/ruler.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Ruler</p><p>A floating screen ruler, a measure tool (distance, width and height) and guides, in points, pixels, cm or inches.</p></div></li>
+        <li><img src="icons/shelf.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Shelf</p><p>Start dragging files and a shelf appears at the right of the screen to park them on; drag them out later, or copy, AirDrop or move them all at once.</p></div></li>
+        <li><img src="icons/shield.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Shield</p><p>One switch that blocks ads and trackers in every app, by DNS.</p></div></li>
+        <li><img src="icons/stats.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Stats</p><p>CPU (per core), GPU, memory, network, disk, temperatures and fans, the apps working hardest, and live numbers in the menu bar.</p></div></li>
+        <li><img src="icons/tidy.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Tidy</p><p>Sort Downloads (or any folder) into Images, Documents, Videos and more; old files go to a Review folder, never the Trash.</p></div></li>
+        <li><img src="icons/tiles.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Tiles</p><p>Snap any window into place with ⌃⌥ and an arrow key (halves, quarters, thirds, centered, full screen, next display) or a click in the menu bar.</p></div></li>
+        <li><img src="icons/up.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Up</p><p>Watch websites and servers: status, response time, a strip of recent checks and an alert when one goes down.</p></div></li>
+      </ul>
+    </section>
+    <section class="group" id="astronomy-and-research" aria-labelledby="astronomy-and-research-h">
+      <h3 id="astronomy-and-research-h">Astronomy and research <span>15</span></h3>
+      <ul class="apps">
+        <li><img src="icons/arxiv.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass arXiv</p><p>New papers in your arXiv categories, keyword matches first, with alerts, saving and citations.</p></div></li>
+        <li><img src="icons/bibtex.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass BibTeX</p><p>DOI or arXiv ID to tidy BibTeX with a Surname-Year key, and \citep{key} in one click.</p></div></li>
+        <li><img src="icons/citations.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Citations</p><p>Your citations and h-index in any field through OpenAlex (PubMed, arXiv, Crossref and more), or from NASA ADS for astronomy; the papers citing you lately, and a note when a new one appears.</p></div></li>
+        <li><img src="icons/constants.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Constants</p><p>CODATA 2022 and IAU 2015 constants in SI or cgs, copied as numbers or astropy expressions.</p></div></li>
+        <li><img src="icons/cosmo.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Cosmo</p><p>Ages, lookback times and distances at any redshift (Planck 2018, WMAP9 or your own cosmology), plus RA/Dec and galactic conversions, and a Units tab with every astronomy unit (distance, angle, mass, time, speed, energy, luminosity, flux density, density, photon wavelength/frequency/energy).</p></div></li>
+        <li><img src="icons/fits.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass FITS</p><p>Drop a FITS file: every HDU&#x27;s header, and an image preview with zscale and asinh stretches.</p></div></li>
+        <li><img src="icons/flux.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Flux</p><p>AB magnitudes ↔ fluxes, luminosities at any redshift, and star formation rates from FUV, NUV, Hα, 24 μm and TIR (Kennicutt &amp; Evans 2012).</p></div></li>
+        <li><img src="icons/lines.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Lines</p><p>Where 70 spectral lines land at any redshift, which survey filters they fall in, and what an observed line could be.</p></div></li>
+        <li><img src="icons/notebooks.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Notebooks</p><p>Your running Jupyter servers and notebooks: start JupyterLab in a folder, open, interrupt, restart or shut down; see how long a kernel has been running, and get a notification when a long run finishes.</p></div></li>
+        <li><img src="icons/palettes.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Palettes</p><p>Color-blind-safe palettes, simulated for protan, deutan and tritan vision, copied for matplotlib or Plotly.</p></div></li>
+        <li><img src="icons/sigma.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Sigma</p><p>σ ↔ p-values, χ² probabilities, Poisson limits (Gehrels 1986) and error propagation.</p></div></li>
+        <li><img src="icons/sky.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Sky</p><p>Tonight&#x27;s Moon, darkness, cloud forecast, visible planets, the best deep-sky targets (galaxies, nebulae, clusters) and Space Station passes, with alerts.</p></div></li>
+        <li><img src="icons/symbols.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Symbols</p><p>Greek, maths and astronomy symbols, and LaTeX to Unicode (M_\odot → M☉).</p></div></li>
+        <li><img src="icons/target.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Target</p><p>Resolve any object name (CDS Sesame), see a survey image, tonight&#x27;s altitude from your site, and jump to Legacy, SDSS, NED, SIMBAD, Aladin or ADS.</p></div></li>
+        <li><img src="icons/writing.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Writing</p><p>Words written today in your .tex or .md manuscript, a streak, and words a day to reach your deadline.</p></div></li>
+      </ul>
+    </section>
+    <section class="group" id="time-and-wellbeing" aria-labelledby="time-and-wellbeing-h">
+      <h3 id="time-and-wellbeing-h">Time and wellbeing <span>15</span></h3>
+      <ul class="apps">
+        <li><img src="icons/breaks.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Breaks</p><p>Eye-rest (20-20-20) and stretch reminders that count time away as a break.</p></div></li>
+        <li><img src="icons/breathe.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Breathe</p><p>A breathing orb that grows and shrinks to a calm, box or 4-7-8 rhythm; follow it for a minute, with optional reminders.</p></div></li>
+        <li><img src="icons/brew.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Brew</p><p>Pour-over coffee timer: water for your dose and ratio, then each pour as it comes (V60, Kalita, Chemex, drip machine, espresso, moka pot, AeroPress, French press, cold brew).</p></div></li>
+        <li><img src="icons/caffeine.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Caffeine</p><p>Log coffees; caffeine in your system now, at bedtime, and the last time for another cup.</p></div></li>
+        <li><img src="icons/clock.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Clock</p><p>A desktop clock with seven analog faces (classic, minimal, numerals, Roman, railway, dots, night) and seven digital ones (rounded, thin, serif, terminal, stacked, flip, in words), and a second city underneath.</p></div></li>
+        <li><img src="icons/countdown.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Countdown</p><p>Count down to the things you&#x27;re looking forward to, with a ring that fills as the day gets closer and confetti when it arrives.</p></div></li>
+        <li><img src="icons/focus.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Focus</p><p>Focus timer with breaks, a weekly chart and streaks; can turn on a Focus mode through Shortcuts.</p></div></li>
+        <li><img src="icons/habits.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Habits</p><p>Daily habits with streaks and a week of dots, progress in the menu bar, and an evening reminder.</p></div></li>
+        <li><img src="icons/ring.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Ring</p><p>A Pomodoro ring on your desktop: focus, short breaks, long breaks, rounds counted, a chime and a notification at each change.</p></div></li>
+        <li><img src="icons/routine.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Routine</p><p>Your morning (or evening) routine as a checklist that resets every day, with a streak for finishing it.</p></div></li>
+        <li><img src="icons/tally.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Tally</p><p>Counters on your desktop for anything worth counting, with goals and daily or weekly resets, and this week&#x27;s totals.</p></div></li>
+        <li><img src="icons/time.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Time</p><p>World clocks with a time-zone converter, plus UTC, local sidereal time, Julian date and MJD.</p></div></li>
+        <li><img src="icons/timers.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Timers</p><p>As many named timers as you like, the next one counting down in the menu bar, and a stopwatch with laps.</p></div></li>
+        <li><img src="icons/water.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Water</p><p>One-click drink logging toward a daily goal, gentle reminders if it&#x27;s been a while, and a week chart.</p></div></li>
+        <li><img src="icons/year.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Year</p><p>The year as 365 dots, a month grid or a week row, the days that have passed filled in; click to switch.</p></div></li>
+      </ul>
+    </section>
+    <section class="group" id="nature-and-desktop" aria-labelledby="nature-and-desktop-h">
+      <h3 id="nature-and-desktop-h">Nature and desktop <span>11</span></h3>
+      <ul class="apps">
+        <li><img src="icons/aurora.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Aurora</p><p>The chance of seeing the aurora where you are (NOAA OVATION), Kp now and for three days, solar wind and alerts.</p></div></li>
+        <li><img src="icons/bonsai.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Bonsai</p><p>A bonsai that grows a little each day you water it, through the seasons; let it be or start a new tree.</p></div></li>
+        <li><img src="icons/frame.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Frame</p><p>A photo frame that shows a folder of your pictures, one at a time with a gentle drift, at the interval you choose.</p></div></li>
+        <li><img src="icons/koi.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Koi</p><p>A koi pond on your desktop: koi glide under lily pads, each with its own markings; click the water to feed them. It darkens at night.</p></div></li>
+        <li><img src="icons/moon.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Moon</p><p>Tonight&#x27;s Moon drawn with its real phase, the next full and new moons, sunrise, sunset, moonrise and moonset for where you are, and the planets that are up.</p></div></li>
+        <li><img src="icons/pet.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Pet</p><p>A little creature in a glass widget on your desktop. Feed it (meals or snacks), play the left-or-right game, clean up after it, put it to bed; its eyes follow your pointer. It grows from an egg over ten days into a starry, leafy or grumpy adult depending on its care, and cheers when you finish a Glass Focus session.</p></div></li>
+        <li><img src="icons/quakes.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Quakes</p><p>The latest earthquakes worldwide and near you from the USGS, with alerts for big or nearby ones.</p></div></li>
+        <li><img src="icons/quote.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Quote</p><p>A quote a day on your desktop, from a collection of 150 with their authors, or your own; copy it with a click.</p></div></li>
+        <li><img src="icons/scene.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Scene</p><p>A small window onto somewhere else: rain, snow, stars, fireflies, an aurora or the sea, with the light of the time of day.</p></div></li>
+        <li><img src="icons/weather.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Weather</p><p>The temperature in your menu bar; a click shows now, the next 24 hours and the week ahead, with rain, wind, UV, sunrise and sunset, for your location or any city.</p></div></li>
+        <li><img src="icons/word.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Word</p><p>A word a day on your desktop, with its meaning, pronunciation and an example; click it for the full dictionary entry and save the ones you like.</p></div></li>
+      </ul>
+    </section>
+    <section class="group" id="audio" aria-labelledby="audio-h">
+      <h3 id="audio-h">Audio <span>9</span></h3>
+      <ul class="apps">
+        <li><img src="icons/eq.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass EQ</p><p>A system-wide audio equalizer with headphone correction and listening presets.</p></div></li>
+        <li><img src="icons/memo.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Memo</p><p>Voice memos (⌃⌥R) turned into text on your Mac, searchable, with playback and drag-out audio.</p></div></li>
+        <li><img src="icons/metronome.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Metronome</p><p>Sample-accurate clicks from 20 to 300 BPM, tap tempo, accents and subdivisions.</p></div></li>
+        <li><img src="icons/mixer.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Mixer</p><p>Volume, mute and output for each app; late-night mode evens out loud and quiet. Works alongside Glass EQ.</p></div></li>
+        <li><img src="icons/mute.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Mute</p><p>Mute your microphone in every app with ⌃⌥M; hold it to talk while muted.</p></div></li>
+        <li><img src="icons/pad.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Pad</p><p>A piano and a drum pad on your desktop; click the keys or play them from your keyboard, with five sounds.</p></div></li>
+        <li><img src="icons/read.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Read</p><p>Reads to you: press ⌃⌥S and whatever you&#x27;ve copied is read aloud with any voice on your Mac, each sentence highlighted as it goes.</p></div></li>
+        <li><img src="icons/sounds.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Sounds</p><p>Rain, ocean, wind, a fan and white, pink or brown noise, made live and mixable, with a sleep timer.</p></div></li>
+        <li><img src="icons/tuner.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Tuner</p><p>A chromatic tuner with a needle and cents, guides for guitar, bass, ukulele, violin and cello, and an adjustable A4.</p></div></li>
+      </ul>
+    </section>
+    <section class="group" id="sports-and-games" aria-labelledby="sports-and-games-h">
+      <h3 id="sports-and-games-h">Sports and games <span>3</span></h3>
+      <ul class="apps">
+        <li><img src="icons/dice.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Dice</p><p>Dice (one to six), a coin and a spinning wheel with your own options, for every decision you&#x27;d rather not make yourself.</p></div></li>
+        <li><img src="icons/lineup.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Lineup</p><p>Fair rec-softball lineups: even bench time, captains one more inning, experienced players at 1B, SS and CF, rovers, and a batting order.</p></div></li>
+        <li><img src="icons/puzzle.webp" alt="" width="48" height="48" loading="lazy" decoding="async"><div><p class="name">Glass Puzzle</p><p>The classic sliding puzzle in glass on your desktop: numbers or your own picture, 3×3 to 5×5, with your best moves and time.</p></div></li>
+      </ul>
+    </section>
+  </section>
+
+  <footer>
+    <span>Glass Apps is made by <a href="https://prospectapp.github.io/">prospectapp</a>.</span>
+    <a href="privacy.html">Privacy and support</a>
+  </footer>
+</main>
+</body>
+</html>
